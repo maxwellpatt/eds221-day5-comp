@@ -43,16 +43,16 @@ Add line-by-line comments wheres prompted in the code below, explaining what eac
 # ------ WHAT HAPPENS HERE? ------ #
 # ------ comment line-by-line ---- #
 
-# The line below...
+# Generates a sequence from 0 to 8 counting by 1, for each year
 time_yr <- seq(from = 0, to = 8, by = 1)
 
-# The line below...
+# Generates a matrix for the values of fish in each category 
 proj_year <- matrix(ncol = length(fish_year0), nrow = length(time_yr))
 
-# The line below...
+# Projects fish for the next year with current information
 proj_year[1, ] <- fish_year0
 
-# The for loop below...
+# Projects fish for the rest of the years, up until year 8 based on time_yr
 for (i in 2:length(time_yr)) {
   proj_year[i,] <- fish_leslie %*% proj_year[i-1,]
 }
